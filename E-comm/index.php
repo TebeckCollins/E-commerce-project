@@ -1,6 +1,5 @@
 <?php
   include_once ('./header.php');
-  include ('functions/common_function.php');
 ?>
 
 <!-- calling cart function -->

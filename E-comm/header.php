@@ -1,6 +1,7 @@
 <?php
 
   include ('./includes/connect.inc.php');
+  include ('functions/common_function.php');
 
   ?>
 
@@ -77,7 +78,7 @@
 
 
   <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="index.php">COLLINS</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -98,10 +99,10 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link disabled"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                        <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item_count() ?></sup></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link">Total Price:100/-</a>
+                        <a class="nav-link">Total Price: <?php total_cart_price() ?>XAF</a>
                     </li>
       </ul>
       <form class="d-flex" role="search" action="search_product.php" method="GET">
@@ -113,8 +114,9 @@
   </div>
 </nav>
   <!-- secondnav -->
-  <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid p-0 bg-dark">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a href="" class="nav-link">Welcome Guest</a>
@@ -124,5 +126,6 @@
         </li>
       </ul>
     </nav>
+    </div>
   </div>
   

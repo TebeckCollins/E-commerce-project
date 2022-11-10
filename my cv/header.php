@@ -122,7 +122,7 @@
           <a href="" class="nav-link">Welcome Guest</a>
         </li>
         <li class="nav-item">
-          <a href="" class="nav-link">Login</a>
+          <a href="login.php" class="nav-link">Login</a>
         </li>
       </ul>
     </nav>
