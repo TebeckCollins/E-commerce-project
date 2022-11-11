@@ -107,9 +107,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="cart.php?cart"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item_count() ?></sup></a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link">Total Price: <?php total_cart_price() ?>XAF</a>
-                    </li>
+                    </li> -->
       </ul>
       <form class="d-flex" role="search" action="search_product.php" method="GET">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_result">

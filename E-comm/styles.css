@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-size: small;
 }
+html {
+    scroll-behavior: smooth;
+}
 .logo {
     width: 5%;
     height: 5%;
