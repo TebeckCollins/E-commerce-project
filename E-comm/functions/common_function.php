@@ -309,7 +309,7 @@ function search_product(){
         alert('Successfully added to cart!');
         </script>";
       echo "<script>
-      window.open('index.php','_self')
+      window.open('display_all.php','_self')
       </script>";
     }
     }

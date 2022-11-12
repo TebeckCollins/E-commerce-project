@@ -83,14 +83,33 @@ if (isset($_GET['cart'])){
   </tbody>
 </table>
     <div class="d-flex">
-      <div class="d-flex">
-        <h5 class="px-3">Total:<strong class="text-info"> <?php echo $total ?> XAF</strong></h5>
-        <a href="display_all.php?continue_shopping"><button class="btn btn-borderless bg-info text-white">Continue Shopping</button></a>
-        <a href="#"><button class="btn btn-borderless bg-secondary text-white mx-3">Checkout</button></a>
+    <?php
+    global $conn;
+    $product_count = 1;
+    $ip = getIPAddress();
+    $cart_query = "select * from cart_details where ip_address='$ip'";
+    $result = mysqli_query($conn,$cart_query);
+    $result_count=mysqli_num_rows($result);
+    if ($result_count>0) {
+      echo "<div class=\"d-flex\">
+        <h5 class=\"px-3\">Total: <strong class=\"text-info\">$total XAF</strong></h5>
+        <input type=\"submit\" value=\"Continue Shopping\" class=\"btn btn-borderless bg-info text-white mx-3\" name='continue_shopping'>
+        <input type=\"submit\" value=\"Checkout\" class=\"btn btn-borderless bg-secondary text-white mx-3\" name='checkout'>
       </div>
-      <div class="" style="margin-left: auto;">
-      <input type="submit" value="Remove Selected" name="delete_item" class="btn btn-borderless bg-danger text-white mx-3">
-      </div>
+      <div class=\"\" style=\"margin-left: auto;\">
+      <input type=\"submit\" value=\"Remove Selected\" name=\"delete_items\" class=\"btn btn-borderless bg-danger text-white mx-3\">
+      </div>";
+    }else {
+        echo "<input type=\"submit\" value=\"Continue Shopping\" class=\"btn btn-borderless bg-info text-white mx-3\" name='continue_shopping'>";
+    }
+    if(isset($_POST['continue_shopping'])){
+      echo "<script>window.open('display_all.php','_self')</script>";
+    }
+    if(isset($_POST['checkout'])){
+      echo "<script>window.open('checkout.php','_self')</script>";
+    }
+    ?>
+      
     </div>
   </form>
   </div>
@@ -100,7 +119,7 @@ if (isset($_GET['cart'])){
 <?php
 function  remove_cart_item(){
   global $conn;
-  if(isset($_POST['delete_item'])){
+  if(isset($_POST['delete_items'])){
     foreach ($_POST['removeitem'] as $remove_id) {
       echo $remove_id;
       $delete_query = "Delete from cart_details where product_id=$remove_id";
@@ -110,7 +129,21 @@ function  remove_cart_item(){
       }
     }
   }
+  // elseif (isset($_POST['delete_item'])){
+  //   $ip = getIPAddress();
+  //   $c_query = "select from cart_details where ip_address='$ip'";
+  //   $c_result = mysqli_query($conn,$c_query);
+  //   if($row=mysqli_fetch_array($c_result)) {
+  //     $product_id = $row['product_id'];
+  //     $delete_query = "Delete from cart_details where product_id=$product_id";
+  //     $run_delete_query = mysqli_query($conn, $delete_query);
+  //     if($run_delete_query){
+  //       echo "<script>window.open('cart.php','_self')</script>";
+  //     }
+  //   }
+  // }
 }
+
 echo $remove_item = remove_cart_item();
 ?>
 

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
 
-    <title>E-comm</title>
+    <title>CHECKOUT</title>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -104,12 +104,12 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                     
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="cart.php?cart"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item_count() ?></sup></a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link">Total Price: <?php total_cart_price() ?>XAF</a>
-                    </li>
+                    </li> -->
       </ul>
       <form class="d-flex" role="search" action="search_product.php" method="GET">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_result">
@@ -128,10 +128,32 @@
           <a href="" class="nav-link">Welcome Guest</a>
         </li>
         <li class="nav-item">
-          <a href="login.php" class="nav-link">Login</a>
+          <a href="" class="nav-link">Login</a>
         </li>
       </ul>
     </nav>
-    </div>
   </div>
+</div>
+<!-- header end -->
+
+<!-- main start -->
   
+  <div class="container" style="min-height:48vh;">
+    <div class="row px-2">
+          <!-- Display checkout options -->
+      <div class="col-sm-12 px-2">
+        <?php
+                if (!isset($_SESSION["useruid"])) {
+                    include('login.php');
+                } else{
+                    include('payment.php');
+                }
+        ?>
+      </div>
+    </div>
+</div>
+
+    <!-- footer -->
+<?php
+  include_once './footer.php';
+?>
