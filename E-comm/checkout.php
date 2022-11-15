@@ -144,7 +144,7 @@
       <div class="col-sm-12 px-2">
         <?php
                 if (!isset($_SESSION["useruid"])) {
-                    include('login.php');
+                    echo "<script>window.open('login.php','_self')</script>";
                 } else{
                     include('payment.php');
                 }

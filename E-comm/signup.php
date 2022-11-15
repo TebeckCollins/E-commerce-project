@@ -136,76 +136,120 @@
 </div>
 <!-- header end -->
 
-<div class="container" style="min-height:45vh;">
-<div class="row m-5">
-<form class="row g-3">
-  <div class="col-md-4">
-    <label for="validationServer01" class="form-label">First name</label>
-    <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
+<!-- main start --> 
+<div class="container bg-light"  style="min-height:80vh;">
+<div class="row d-flex align-item-center justify-content-center my-3 p-5">
+  <h3 class="text-center mb-5">Create Account</h3>
+  <div class="col-md-8 m-auto">
+<form action="" method="POST" enctype="multipart/form-data" class="row">
+  <div class="form-outline col-md-4 mb-3">
+    <label for="u_firstname" class="form-label">First name</label>
+    <input type="text" name="u_firstname" class="form-control is-valid" id="u_firstname" value="" placeholder="Enter your First Name" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="form-outline col-md-4 mb-3">
     <label for="validationServer02" class="form-label">Last name</label>
-    <input type="text" class="form-control is-valid" id="validationServer02" value="Otto" required>
+    <input type="text" name="u_lastname" class="form-control is-valid" id="u_lastname" value="" placeholder="Enter your Last Name" required>
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
-  <div class="col-md-4">
-    <label for="validationServerUsername" class="form-label">Username</label>
+  <div class="form-outline col-md-4 mb-3">
+    <label for="u_username" class="form-label">Username</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend3">@</span>
-      <input type="text" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+      <input type="text" name="u_username" class="form-control is-invalid" id="u_username" placeholder="Choose a username" required>
       <div id="validationServerUsernameFeedback" class="invalid-feedback">
         Please choose a username.
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <label for="validationServer03" class="form-label">City</label>
-    <input type="text" class="form-control is-invalid" id="validationServer03" aria-describedby="validationServer03Feedback" required>
-    <div id="validationServer03Feedback" class="invalid-feedback">
+  <!-- email -->
+  <div class="form-outline col-md-6 mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" name="u_email" class="form-control is-valid" id="u_email" value="" placeholder="Enter your email" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <!-- password -->
+  <div class="form-outline col-md-6 mb-3">
+  </div>
+  <div class="form-outline col-md-6 mb-3">
+    <label for="u_password" class="form-label">Password</label>
+    <input type="text" name="u_password" class="form-control is-valid" id="u_password" value="" placeholder="Enter your password" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <!-- verify password -->
+  </div>
+  <div class="form-outline col-md-6 mb-3">
+    <label for="u_v_password" class="form-label">Verify Password</label>
+    <input type="text" name="u_v_password" class="form-control is-valid" id="u_v_password" value="" placeholder="Verify password" required>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+  </div>
+  <!-- image -->
+  <div class="form-outline col-md-12 mb-3">
+    <label for="image" class="form-label">Image</label>
+    <input type="file" class="form-control is-valid" id="u_image" required>
+  </div>
+  
+  <div class="form-outline col-md-6 mb-3">
+    <label for="city" class="form-label">City</label>
+    <input type="text" name="u_city" class="form-control is-invalid" id="u_city" placeholder="Enter your city" required>
+    <div id="validationServerFeedback" class="invalid-feedback">
       Please provide a valid city.
     </div>
   </div>
-  <div class="col-md-3">
-    <label for="validationServer04" class="form-label">State</label>
-    <select class="form-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+  <div class="form-outline col-md-6 mb-3">
+    <label for="country" class="form-label">Country/State</label>
+    <select class="form-select selectpicker countrypicker" data-flag="true" id="u_country" aria-describedby="validationServer04Feedback" required>
       <option selected disabled value="">Choose...</option>
-      <option>...</option>
+      <option value="CM">Cameroon</option>
     </select>
     <div id="validationServer04Feedback" class="invalid-feedback">
-      Please select a valid state.
+      Please select a valid country/state.
     </div>
   </div>
-  <div class="col-md-3">
-    <label for="validationServer05" class="form-label">Zip</label>
-    <input type="text" class="form-control is-invalid" id="validationServer05" aria-describedby="validationServer05Feedback" required>
-    <div id="validationServer05Feedback" class="invalid-feedback">
-      Please provide a valid zip.
+  <div class="form-outline col-md-6 mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="tel" name="u_phone" class="form-control is-invalid" id="phone" required>
+    <div id="validationServer05Feedback" class="invalid-feedback mb-3">
+      Please provide a valid phone.
     </div>
+    <script>
+      var input = document.querySelector("#phone");
+      window.intlTelInput(input, {
+        seperateDialCode: true
+      });
+    </script>
   </div>
-  <div class="col-12">
+  <div class="col-md-6 mb-3">
+  </div>
+  <div class="form-outline col-12 mb-3">
     <div class="form-check">
-      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+      <input class="form-check-input is-invalid" type="checkbox" value="" id="u_policyCheck" required>
       <label class="form-check-label" for="invalidCheck3">
         Agree to terms and conditions
       </label>
-      <div id="invalidCheck3Feedback" class="invalid-feedback">
+      <div id="policyFeedback" class="invalid-feedback mb-3">
         You must agree before submitting.
       </div>
     </div>
   </div>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit">Submit form</button>
+  <div class="form-outline col-12 mb-3">
+    <button class="btn btn-primary" type="submit" name="u_register">Submit form</button>
+    <p class="small fw-bold mt-2 pt-1">Already have an account? <a href="login.php" class="text-decoration-none">Login here!</a></p>
   </div>
 </form>
+  </div>
     </div>
     </div>
 
-    <!-- footer -->
-<?php
-  include_once './footer.php';
-?>
+<!-- footer -->
+    </body>
+    </html>
