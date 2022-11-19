@@ -1,5 +1,6 @@
 <?php
     include('./includes/connect.inc.php');
+
     if (isset($_POST['insert_product'])) {
         $product_title = $_POST['product_title'];
         $product_description = $_POST['product_description'];
@@ -92,17 +93,17 @@
         </div>
         <!-- image 1 -->
         <div class="form-outline mb-4 w-50 m-1">
-            <label for="image1" class="form-label">Product image</label>
+            <label for="image1" class="form-label">Product image 1</label>
             <input type="file" name="product_image1" id="product_image1" class="form-control" required="required">
         </div>
         <!-- image 2 -->
         <div class="form-outline mb-4 w-50 m-1">
-            <label for="image2" class="form-label">Product image</label>
+            <label for="image2" class="form-label">Product image 2</label>
             <input type="file" name="product_image2" id="product_image2" class="form-control" required="required">
         </div>
         <!-- image 3 -->
         <div class="form-outline mb-4 w-50 m-1">
-            <label for="image3" class="form-label">Product image</label>
+            <label for="image3" class="form-label">Product image 3</label>
             <input type="file" name="product_image3" id="product_image3" class="form-control" required="required">
         </div>
         <!-- Price -->

@@ -1,4 +1,5 @@
 <?php
+  session_start();
 
   include ('./includes/connect.inc.php');
   include ('functions/common_function.php');
@@ -20,7 +21,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" type="text/css" href="footer.css">
 
-    <title>E-comm</title>
+    <title>Cart</title>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -123,15 +124,35 @@
   <div class="container-fluid p-0 bg-dark">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a href="" class="nav-link">Welcome Guest</a>
+      
+      <?php
+        if(isset($_SESSION["username"])) {
+          echo "
+          <ul class=\"navbar-nav me-auto\">
+            <li class=\"nav-item\">
+              <a href=\"#\" class=\"nav-link\" disable>Welcome " . $_SESSION["username"] . "</a>
+            </li>
+          </ul>
+          <ul class=\"navbar-nav\" style=\"margin-left:auto;\">
+            <li class=\"nav-item\">
+              <a href=\"dashboard.php\" class=\"nav-link\">Dashboard</a>
+            </li>
+            <li class=\"nav-item\">
+              <a href=\"./includes/logout.inc.php\" class=\"nav-link\">Log out</a>
+            </li>
+          </ul>";
+        }else{
+          echo "<ul class=\"navbar-nav me-auto\">
+          <li class=\"nav-item\">
+          <a href=\"\" class=\"nav-link\">Welcome Guest</a>
         </li>
-        <li class="nav-item">
-          <a href="" class="nav-link">Login</a>
+        <li class=\"nav-item\">
+          <a href=\"login.php\" class=\"nav-link\">Login</a>
         </li>
-      </ul>
+      </ul>";
+        }
+      ?>
     </nav>
     </div>
   </div>
-  
+      </div> 

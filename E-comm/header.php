@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
   include ('./includes/connect.inc.php');
   include ('functions/common_function.php');
 
@@ -82,7 +82,6 @@
 <body>
   <div class="container-fluid p-0">
 
-
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container">
     <a class="navbar-brand" href="index.php">COLLINS</a>
@@ -97,9 +96,18 @@
                     <li class="nav-item">
                         <a class="nav-link" href="display_all.php">Products</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
-                    </li>
+                    <?php
+                      if(isset($_SESSION["username"])) {
+                        echo "";
+                      }else{
+                        echo "<li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"signup.php\">Register</a>
+                    </li>";
+                      }
+                    ?>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="signup.php">Register</a>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact</a>
                     </li>
@@ -123,15 +131,36 @@
   <div class="container-fluid p-0 bg-dark">
     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-dark">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a href="" class="nav-link">Welcome Guest</a>
+      
+      <?php
+        if(isset($_SESSION["username"])) {
+          echo "
+          <ul class=\"navbar-nav me-auto\">
+            <li class=\"nav-item\">
+              <a href=\"#\" class=\"nav-link\">Welcome " . $_SESSION["username"] . "</a>
+            </li>
+          </ul>
+          <ul class=\"navbar-nav\" style=\"margin-left:auto;\">
+            <li class=\"nav-item\">
+              <a href=\"dashboard.php\" class=\"nav-link\">Dashboard</a>
+            </li>
+            <li class=\"nav-item\">
+              <a href=\"./includes/logout.inc.php\" class=\"nav-link\">Log out</a>
+            </li>
+          </ul>";
+        }else{
+          echo "<ul class=\"navbar-nav me-auto\">
+          <li class=\"nav-item\">
+          <a href=\"\" class=\"nav-link\">Welcome Guest</a>
         </li>
-        <li class="nav-item">
-          <a href="login.php" class="nav-link">Login</a>
+        <li class=\"nav-item\">
+          <a href=\"login.php\" class=\"nav-link\">Login</a>
         </li>
-      </ul>
+      </ul>";
+        }
+      ?>
+      
     </nav>
     </div>
   </div>
-  
+      </div>

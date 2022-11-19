@@ -1,6 +1,6 @@
 <?php
 
-include('./includes/connect.inc.php');
+include('includes/connect.inc.php');
 
 //getting products
 function getProducts(){
@@ -300,7 +300,7 @@ function search_product(){
         alert('Item already present in cart!');
         </script>";
         echo "<script>
-        window.open('index.php','_self')
+        window.open('display_all.php','_self')
         </script>";
     }else {
       $insert_query = "INSERT INTO cart_details (product_id, ip_address, quantity, date) values('$get_product_id', '$ip', 0, NOW())";
@@ -308,9 +308,9 @@ function search_product(){
       echo "<script>
         alert('Successfully added to cart!');
         </script>";
-      echo "<script>
-      window.open('display_all.php','_self')
-      </script>";
+      // echo "<script>
+      // window.open('display_all.php','_self')
+      // </script>";
     }
     }
   }

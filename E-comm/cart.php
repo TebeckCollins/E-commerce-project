@@ -9,7 +9,8 @@ if (isset($_GET['cart'])){
 <div class="container" style="min-height:45vh;">
 <div class="row m-5">
   <form action="" method="post">
-<table class="table">
+    <div class="table-responsive">
+<table class="table table-striped table-sm">
 
     <!-- dynamic cart data -->
     <?php
@@ -52,7 +53,6 @@ if (isset($_GET['cart'])){
       <td class="text-center"><input type="text" name="qty" class="form-input w-50"><br>
       <?php
       $ip = getIPAddress();
-      $quantities = 1;
       if(isset($_POST['update_cart'])){
         $quantities = $_POST['qty'];
         $update_cart = "update cart_details set quantity=$quantities where ip_address='$ip'";
@@ -60,7 +60,7 @@ if (isset($_GET['cart'])){
         $total = $total*$quantities;
       }
       ?>
-      <label for="quantity"><?php echo $quantities?></label></td>
+      <label for="quantity"></label></td>
       
       <td class="text-center"><?php echo $price_table?> XAF</td>
       <td class="text-center"><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>" id=""></td>
@@ -82,6 +82,7 @@ if (isset($_GET['cart'])){
     
   </tbody>
 </table>
+</div>
     <div class="d-flex">
     <?php
     global $conn;
